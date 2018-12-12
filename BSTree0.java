@@ -242,6 +242,7 @@ public class BSTree0 implements iBSTree
 	}
 	
 	private void setHeight (Node p) {
+		if (p!=null)
 		p.height = 1+ Math.max(getHeight(p.right), getHeight(p.left));
 	}
 	
@@ -249,8 +250,8 @@ public class BSTree0 implements iBSTree
 		Node tmp = p.left;
 		p.left = tmp.right;
 		tmp.right = p;
-		setHeight (tmp);
 		setHeight (p);
+		setHeight (tmp);
 		return tmp;
 	}
 	
@@ -258,8 +259,8 @@ public class BSTree0 implements iBSTree
 		Node tmp = p.right;
 		p.right = tmp.left;
 		tmp.left = p;
-		setHeight (tmp);
 		setHeight (p);
+		setHeight (tmp);
 		return tmp;
 	}
 	
